@@ -22,13 +22,14 @@ RUN apk add --no-cache \
 RUN adduser \
     --disabled-password \
     --gecos "" \
-    --uid 1234 \
+    --uid 1000 \
     rust
 
 USER rust 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 RUN echo "source $HOME/.cargo/env" >> "/home/rust/.zshrc"
+RUN source $HOME/.cargo/env && cargo install cargo-watch
 
 RUN mkdir -p ~/.local/share/fonts
 COPY fonts/* ~/.local/share/fonts/
