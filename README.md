@@ -15,7 +15,7 @@ This starts the container and mounts the local directory /tmp/rust-dev to /rust 
 # Tmux 
 
 ## Cargo watch - run the application on file change
-```cargo watch -x run```
+```cargo watch -cx run```
 
 ## Cargo watch - run the tests on file change
-```cargo watch -x test```
+```cargo watch -cx test```
