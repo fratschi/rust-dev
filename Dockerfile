@@ -1,8 +1,8 @@
 FROM alpine:latest
 
+ARG HOST_UID=1000
+
 RUN apk update && apk upgrade
-
-
 
 RUN apk add --no-cache \
     curl \
@@ -22,7 +22,7 @@ RUN apk add --no-cache \
 RUN adduser \
     --disabled-password \
     --gecos "" \
-    --uid 1000 \
+    --uid "$HOST_UID" \
     rust
 
 USER rust 
